@@ -1,4 +1,4 @@
-package common
+package api
 
 import (
 	"encoding/json"
@@ -8,12 +8,18 @@ import (
 	"net/http"
 )
 
-// Controller handle all base methods
-type Controller struct {
+// BaseController handle all base methods
+type BaseController struct {
 }
 
-// Send JSON marshals v to a json struct and send the appropriate headers to w
-func (c *Controller) sendJSON(w http.ResponseWriter, r *http.Request, v interface{}, code int) {
+// Error is a struct to return an auth error
+type Error struct {
+	Message string `json:"message"`
+	Error   string `json:"error"`
+}
+
+// SendJSON marshals v to a json struct and send the appropriate headers to w
+func (c *BaseController) SendJSON(w http.ResponseWriter, r *http.Request, v interface{}, code int) {
 	w.Header().Add("Content-Type", "application/json")
 
 	b, err := json.Marshal(v)

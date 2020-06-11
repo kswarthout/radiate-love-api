@@ -1,0 +1,9 @@
+base:
+  host: localhost
+  port: 8081
+jwt:
+  signingKey: 88272D20E47D344142319E3AE5CAC18C0FC5F24016F24F777CBF7E32997BF85A
+db:
+  name: radiatelove
+  host: localhost
+  port: 27017
