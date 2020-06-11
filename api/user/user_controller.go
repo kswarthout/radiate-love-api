@@ -18,12 +18,14 @@ type Controller struct {
 // AddRoutes registers user endpoints and handlers
 func (c *Controller) AddRoutes(router *mux.Router) *mux.Router {
 	fmt.Println(&c.Repo.users)
-	basePath := "/api/users"
-	router.HandleFunc(basePath+"/", c.createUser).Methods("POST")
-	router.HandleFunc(basePath+"/", c.listUsers).Methods("GET")
-	router.HandleFunc(basePath+"/{userId}", c.getUser).Methods("GET")
-	router.HandleFunc(basePath+"/{userId}", c.updateUser).Methods("PUT")
-	router.HandleFunc(basePath+"/{userId}", c.deleteUser).Methods("DELETE")
+	basePath := "/api"
+	router.HandleFunc(basePath+"/login", c.login).Methods("POST")
+	router.HandleFunc(basePath+"/register", c.register).Methods("POST")
+	router.HandleFunc(basePath+"/users", c.createUser).Methods("POST")
+	router.HandleFunc(basePath+"/users", c.listUsers).Methods("GET")
+	router.HandleFunc(basePath+"/users/{id}", c.getUser).Methods("GET")
+	router.HandleFunc(basePath+"/users/{id}", c.updateUser).Methods("PUT")
+	router.HandleFunc(basePath+"/users/{id}", c.deleteUser).Methods("DELETE")
 	return router
 }
 
