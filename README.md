@@ -1,10 +1,14 @@
 # Radiate Love API
 An API for Radiate Love Foundation's Fund Management web app. The API was implemented in Go and uses MongoDB for data storage.
 
+# API Documentation
+You can view the YAML document describing the API design [here](https://app.swaggerhub.com/apis/kari_bullard/Radiate-Love-Foundation/1.0.0)
+
 # Dependencies
 This project uses the following dependencies that can be retrieved using ```go get```:
 - github.com/gorilla/mux
 - go.mongodb.org/mongo-driver/mongo
+
 # MongoDB
 The API uses the on-premise MongoDB Community Server to store application data. 
 
